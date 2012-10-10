@@ -57,8 +57,10 @@ Manage a gitolite resource (installation).
     | Parameter  | Description                | Default |
     |------------|----------------------------|---------|
     | *group*    | Group to sets              |         |
-    | *home*     | Type of HOME path          |         |
+    | *home*     | The HOME path              |         |
     | *version*  | gitolite version           | stable  |
+    | *ssh_key*  | SSH Key string             |         |
+    | *ssh_path* | SSH Path                   |         |
 
 ### LWRP Examples
 

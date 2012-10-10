@@ -1,3 +1,3 @@
-## v0.1.0 (unreleased)
+## v0.1.0 (October 10, 2012)
 
-* Initial release
+The initial release.
