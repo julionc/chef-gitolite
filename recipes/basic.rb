@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: gitolite
-# Recipe:: default
+# Recipe:: basic
 #
 # Author:: Julio Napuri <julionc@gmail.com>
 #
@@ -18,3 +18,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+username = node['gitolite']['username']
+
+gitolite_user username do
+  home      node['gitolite']['home']
+  version   node['gitolite']['version']
+  ssh_key   node['gitolite']['ssh_key']
+end

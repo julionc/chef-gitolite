@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: gitolite
-# Recipe:: default
+# Resource:: user
 #
 # Author:: Julio Napuri <julionc@gmail.com>
 #
@@ -18,3 +18,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+actions :create, :remove
+
+default_action :create
+
+attribute :username,  :kind_of => String, :name_attribute => true
+attribute :comment,   :kind_of => String, :default => ""
+attribute :group,     :kind_of => String
+attribute :home,      :kind_of => String, :required => true
+attribute :shell,     :kind_of => String, :default => "/bin/bash"
+attribute :version,   :kind_of => String, :default => "stable"
+attribute :ssh_key,   :kind_of => String
+attribute :key_path,  :kind_of => String
