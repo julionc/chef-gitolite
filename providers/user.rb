@@ -30,6 +30,7 @@ action :create do
   dir_resource      :create
   repo_resource     :sync
   ssh_key_resource  :create
+  install_resource  :run
   setup_resource    :run
 end
 
@@ -109,16 +110,28 @@ def ssh_key_resource(exec_action)
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 end
 
+def install_resource(exec_action)
+  home_path = @home_path
+
+  r = execute "gitolite/install -ln" do
+    user      new_resource.username
+    cwd       home_path
+    command   "#{home_path}/gitolite/install -ln #{home_path}/bin"
+    creates   "#{home_path}/bin/gitolite"
+  end
+  r.run_action(exec_action)
+  new_resource.updated_by_last_action(true) if r.updated_by_last_action?
+end
+
 def setup_resource(exec_action)
   home_path = @home_path
-  username = new_resource.username
 
-  # CHEF-2288 - execute resource, doesn't work properly!
-  cmd = 'sudo su - #{username} -c "#{home_path}/gitolite/install -ln;#{home_path}/gitolite/src/gitolite setup -pk gitolite-admin.pub"'
-
-  r = execute "install and setup gitolite" do
-    command cmd
-    action  :nothing
+  r = execute "gitolite setup -pk gitolite-admin.pub" do
+    user      new_resource.username
+    group     Etc.getpwnam(new_resource.username).gid unless new_resource.group
+    cwd       home_path
+    command   "#{home_path}/gitolite/src/gitolite setup -pk #{home_path}/gitolite-admin.pub"
+    environment ({'HOME' => home_path})
   end
   r.run_action(exec_action)
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
