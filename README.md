@@ -3,6 +3,8 @@
 This cookbook sets up [gitolite][gitolite] service.
 Also includes a LWRP.
 
+[![Build Status](https://secure.travis-ci.org/julionc/chef-gitolite.png)](http://travis-ci.org/julionc/chef-gitolite)
+
 Requirements
 ============
 
