@@ -32,10 +32,14 @@ action :create do
   ssh_key_resource  :create
   install_resource  :run
   setup_resource    :run
+
+  new_resource.updated_by_last_action(true)
 end
 
 action :delete do
   user_resource   :remove
+
+  new_resource.updated_by_last_action(true)
 end
 
 private
