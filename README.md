@@ -47,20 +47,20 @@ Manage a gitolite resource (installation).
 
 ### Actions:
 
-    | Action    | Description        | Default |
-    |-----------|--------------------|---------|
-    | *create*  | Create the user.   | Yes     |
-    | *remove*  | Destroy the user.  |         |
+| Action    | Description        | Default |
+|-----------|--------------------|---------|
+| *create*  | Create the user.   | Yes     |
+| *remove*  | Destroy the user.  |         |
 
 ### Parameter Attributes:
 
-    | Parameter  | Description                | Default |
-    |------------|----------------------------|---------|
-    | *group*    | Group to sets              |         |
-    | *home*     | The HOME path              |         |
-    | *version*  | gitolite version           | stable  |
-    | *ssh_key*  | SSH Key string             |         |
-    | *ssh_path* | SSH Path                   |         |
+| Parameter  | Description                | Default |
+|------------|----------------------------|---------|
+| *group*    | Group to sets              |         |
+| *home*     | The HOME path              |         |
+| *version*  | gitolite version           | stable  |
+| *ssh\_key*  | SSH Key string             |         |
+| *ssh\_path* | SSH Path                   |         |
 
 ### LWRP Examples
 
@@ -119,7 +119,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
