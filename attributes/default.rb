@@ -21,7 +21,7 @@
 
 # Cookbook Settings
 default['gitolite']['repository_url'] = 'git://github.com/sitaramc/gitolite.git'
-default['gitolite']['stable_version'] = 'v3.04'
+default['gitolite']['stable_version'] = 'v3.5.3.1'
 
 # Custom Settings
 default['gitolite']['username'] = 'git'

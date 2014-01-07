@@ -20,7 +20,7 @@ Requirements
 Recipes
 =======
 
-* `gitolite` - This recipe is a no-op and does nothing.
+* `gitolite` - This recipe installs Gitolite dependencies perl and git.
 * `gitolite::basic` - Sets up the gitolite basic installation.
 
 Attributes

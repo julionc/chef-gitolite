@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-include_recipe "gitolite"
+include_recipe "gitolite::default"
 
 username = node['gitolite']['username']
 

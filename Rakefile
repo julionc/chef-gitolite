@@ -1,16 +1,23 @@
 #!/usr/bin/env rake
 
-require 'foodcritic'
+task :default => 'foodcritic'
 
-task :default => [:foodcritic]
+desc "Runs foodcritic linter"
+task :foodcritic do
+  Rake::Task[:prepare_sandbox].execute
 
-FoodCritic::Rake::LintTask.new
+  if Gem::Version.new("1.9.2") <= Gem::Version.new(RUBY_VERSION.dup)
+    sh "foodcritic #{sandbox_path}"
+  else
+    puts "WARN: foodcritic run is skipped as Ruby #{RUBY_VERSION} is < 1.9.2."
+  end
+end
 
 desc "Runs knife cookbook test"
 task :knife do
   Rake::Task[:prepare_sandbox].execute
 
-  sh "bundle exec knife cookbook test cookbook -c test/.chef/knife.rb -o #{sandbox_path}/../"
+  sh "bundle exec knife cookbook test gitolite -c test/.chef/knife.rb -o #{sandbox_path}/../"
 end
 
 task :prepare_sandbox do
@@ -23,5 +30,5 @@ end
 
 private
 def sandbox_path
-  File.join(File.dirname(__FILE__), %w(tmp cookbooks cookbook))
+  File.join(File.dirname(__FILE__), %w(tmp cookbooks gitolite))
 end
