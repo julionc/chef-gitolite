@@ -19,6 +19,8 @@
 # limitations under the License.
 #
 
+include_recipe "gitolite"
+
 username = node['gitolite']['username']
 
 gitolite_user username do
