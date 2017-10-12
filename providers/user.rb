@@ -62,7 +62,7 @@ def user_resource(exec_action)
     comment   new_resource.comment  if new_resource.comment
     home      home_path
     shell     new_resource.shell    if new_resource.shell
-    supports  :manage_home => true
+    manage_home true
     action    :nothing
   end
   r.run_action(exec_action)
